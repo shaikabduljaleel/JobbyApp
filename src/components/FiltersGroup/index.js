@@ -1,6 +1,4 @@
 import {BsSearch} from 'react-icons/bs'
-
-// eslint-disable-next-line import/extensions
 import ProfileDetails from '../ProfileDetails'
 import './index.css'
 
@@ -56,13 +54,13 @@ const FiltersGroup = props => {
               <li
                 className="employee-item"
                 key={eachEmployeeType.employmentTypeId}
-                onChange={onSelectEmployeeType}
               >
                 <input
                   type="checkbox"
                   id={eachEmployeeType.employmentTypeId}
                   className="check-input"
                   value={eachEmployeeType.employmentTypeId}
+                  onChange={onSelectEmployeeType} // Correctly attach onChange to input
                 />
                 <label
                   htmlFor={eachEmployeeType.employmentTypeId}
@@ -86,20 +84,18 @@ const FiltersGroup = props => {
           <ul className="salary-range-list-container">
             {salaryRangesList.map(eachSalary => {
               const {changeSalary} = props
-              const onClickSalary = () => {
-                changeSalary(eachSalary.salaryRangeId)
+              const onSelectSalary = event => {
+                changeSalary(event.target.value) // Handle radio change event
               }
               return (
-                <li
-                  className="salary-item"
-                  key={eachSalary.salaryRangeId}
-                  onClick={onClickSalary}
-                >
+                <li className="salary-item" key={eachSalary.salaryRangeId}>
                   <input
                     type="radio"
                     id={eachSalary.salaryRangeId}
                     name="salary"
                     className="check-input"
+                    value={eachSalary.salaryRangeId}
+                    onChange={onSelectSalary} // Correctly attach onChange to input
                   />
                   <label
                     htmlFor={eachSalary.salaryRangeId}

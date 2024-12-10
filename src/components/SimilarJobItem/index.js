@@ -38,7 +38,7 @@ const SimilarJobItem = props => {
           </div>
           <div className="employee-type-container">
             <BsFillBriefcaseFill className="brief-case-icon" />
-            <p className="employee-type-heading">{employmentTypeqqqw}</p>
+            <p className="employee-type-heading">{employmentType}</p>
           </div>
         </div>
       </div>

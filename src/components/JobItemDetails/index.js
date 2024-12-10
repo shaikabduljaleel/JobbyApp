@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-import {BsFillBriefCaseFill, BsStarFill} from 'react-icons/bs'
+import {BsFillBriefcaseFill, BsStarFill} from 'react-icons/bs'
 import {BiLinkExternal} from 'react-icons/bi'
 import {MdLocationOn} from 'react-icons/md'
 import Header from '../Header'
@@ -89,6 +89,7 @@ class JobItemDetails extends Component {
   renderFailureView = () => {
     const {match} = this.props
     const {params} = match
+    // eslint-disable-next-line
     const {id} = params
     return (
       <div className="job-item-error-view-container">
@@ -161,7 +162,7 @@ class JobItemDetails extends Component {
                   <p className="location-heading">{location}</p>
                 </div>
                 <div className="employee-type-container">
-                  <BsFillBriefCaseFill className="brief-case-icon" />
+                  <BsFillBriefcaseFill className="brief-case-icon" />
                   <p className="employee-type-heading">{employmentType}</p>
                 </div>
               </div>
@@ -172,7 +173,11 @@ class JobItemDetails extends Component {
           <div className="description-visit-container">
             <h1 className="description-heading">Description</h1>
             <div className="visit-container">
-              <a href={companyWebsiteUrl} className="visit-heading">
+              <a
+                href={companyWebsiteUrl}
+                className="visit-heading"
+                key="company_website_url"
+              >
                 Visit
               </a>
               <BiLinkExternal className="visit-icon" />
